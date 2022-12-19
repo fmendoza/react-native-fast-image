@@ -73,6 +73,7 @@ RCT_EXPORT_METHOD(preload:(nonnull NSNumber*)preloaderId sources:(nonnull NSArra
     }];
     
     FFFastImagePreloader* preloader = _preloaders[preloaderId];
+    preloader.options = SDWebImageAvoidDecodeImage;
     [preloader prefetchURLs:urls];
 }
 
