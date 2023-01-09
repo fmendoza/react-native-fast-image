@@ -27,7 +27,7 @@ RCT_EXPORT_MODULE(FastImagePreloaderManager);
         _preloaders = [[NSMutableDictionary alloc] init];
     }
 
-    SDImageCache.sharedImageCache.config.maxDiskAge = 3600 * 24 * 7; // 1 Week
+    SDImageCache.sharedImageCache.config.maxDiskAge = -1; // Setting this to a negative value means no expiring.
     SDImageCache.sharedImageCache.config.maxMemoryCost = 1024 * 1024 * 4 * 20; // 20 images (1024 * 1024 pixels)
     SDImageCache.sharedImageCache.config.shouldCacheImagesInMemory = NO; // Disable memory cache, may cause cell-reusing flash because disk query is async
     SDImageCache.sharedImageCache.config.shouldUseWeakMemoryCache = NO; // Disable weak cache, may see blank when return from background because memory cache is purged under pressure
